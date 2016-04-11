@@ -1,0 +1,30 @@
+{
+  "name": "clickr",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Aristona/Phaser-clickr",
+  "authors": [
+    "Aristona <iamaristona@windowslive.com>"
+  ],
+  "description": "Clickr",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "phaser",
+    "click",
+    "idle",
+    "incremental",
+    "game"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "phaser": "~2.4.6"
+  }
+}

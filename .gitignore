@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+/.idea
+.sass-cache
+/node_modules
+/tests
+/.phpintel
+/bower_components
