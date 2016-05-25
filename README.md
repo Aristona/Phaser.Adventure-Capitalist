@@ -1,3 +1,11 @@
+**What**
+
+A basic clone of a game called Adventure Quest written in HTML5/Phaser.
+
+**Why**
+
+Liked the game, wanted to create something similar in few hours.
+
 **Usage**
 
 Install npm.
