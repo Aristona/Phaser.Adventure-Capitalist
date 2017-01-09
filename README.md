@@ -10,9 +10,8 @@ Liked the game and challenged myself to create something similar in few hours. I
 
 Install `NPM` and run the following commands.
 
+    npm install
     npm install -g http-server
-    npm install -g bower
-    bower install
     npm start
 
 Browse `localhost:8080`.
