@@ -6,3 +6,4 @@ Thumbs.db
 /tests
 /.phpintel
 /build
+.tscache
