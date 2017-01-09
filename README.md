@@ -1,6 +1,6 @@
 **What**
 
-A basic clone of a game called Adventure Quest written in HTML5/Phaser.
+A basic clone of a game called Adventure Capitalist written in HTML5/Phaser.
 
 **Why**
 
