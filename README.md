@@ -1,19 +1,33 @@
 **What**
 
-A basic clone of a game called Adventure Capitalist written in HTML5/Phaser.
+This is a basic clone of a game called Adventure Capitalist written in Phaser framework.
 
 **Why**
 
-Liked the game, wanted to create something similar in few hours.
+Liked the game and challenged myself to create something similar in few hours. I plan to make some improvements and use it as a base of my future idle games.
 
-**Usage**
+**Install**
 
-Install npm.
+Install `NPM` and run the following commands.
 
     npm install -g http-server
     npm install -g bower
     bower install
-    http-server
-    grunt watch
+    npm start
 
-Browse localhost:8080
+Browse `localhost:8080`.
+
+**Work**
+
+Grunt will watch the `js` folder and handle everything for you.
+
+**Future Plans**
+
+- Convert everything to Typescript.
+- Rely on es7 async/await instead of promises where applicable.
+- Add a DI Container and write tests.
+- Rely on Sass/Compass to create GUI on top of Canvas screen.
+- Add offline playability.
+- Write a backend server and store information on Redis.
+- Allow game to be played in mobile phones using Cordova/Crosswalk.
+- Add the rest of the game logic, such as Angel Investors, Shop, Upgrades, Managers etc.

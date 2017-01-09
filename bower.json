@@ -1,11 +1,11 @@
 {
-  "name": "clickr",
+  "name": "adventure-capitalist",
   "version": "0.0.1",
-  "homepage": "https://github.com/Aristona/Phaser-adventure-quest",
+  "homepage": "https://github.com/Aristona/Phaser-adventure-capitalist",
   "authors": [
     "Aristona <iamaristona@windowslive.com>"
   ],
-  "description": "Clickr",
+  "description": "adventure-capitalist",
   "moduleType": [
     "es6"
   ],
