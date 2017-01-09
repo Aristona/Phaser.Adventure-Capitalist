@@ -1,4 +1,4 @@
-class Help {
+class HelpState extends State {
 
     constructor(game) {
         this.game = game;
@@ -6,8 +6,8 @@ class Help {
 
     create() {
 
-        let bg = this.game.add.tileSprite(0, 0, this.game.camera.width, this.game.camera.height, 'menu_bg');
-        let back = this.game.add.button(50, 50, 'back');
+        let bg = this.game.add.tileSprite(0, 0, this.game.camera.width, this.game.camera.height, "menu_bg");
+        let back = this.game.add.button(50, 50, "back");
         let text = this.game.add.text(100, 150, "Woohooo!", {
             font: "24px Arial",
             fill: "#ccc"
@@ -24,7 +24,7 @@ class Help {
             back.scale.setTo(.5, .5);
         });
         back.onInputDown.add(() => {
-            this.game.state.start('Menu');
+            this.game.state.start("MenuState");
         });
 
     }

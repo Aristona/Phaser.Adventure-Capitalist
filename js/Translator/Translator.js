@@ -1,6 +1,7 @@
 class Translator
 {
     constructor() {
+        // @todo read from an external file
         this.en = {
             "lemonade-shop": "Lemonade Shop",
             "newspaper-shop": "Newspaper Shop",
@@ -26,6 +27,7 @@ class Translator
 
     translate(key, replace = null) {
         if (this.en.hasOwnProperty(key) === true) {
+            // @todo support named bindings like welcome :username
             return this.en[key].replace("%s", replace);
         }
 

@@ -1,4 +1,4 @@
-class OilShop extends AbstractShop
+class OilShop extends Shop
 {
 
     constructor(game, index) {

@@ -1,4 +1,4 @@
-class BankShop extends AbstractShop
+class DonutShop extends Shop
 {
 
     constructor(game, index) {
@@ -6,13 +6,13 @@ class BankShop extends AbstractShop
         this.index = index;
 
         this.asset = {
-            name: "bank-shop"
+            name: "donut-shop"
         };
 
-        this.price = 10000000;
+        this.price = 3000;
 
-        this.profit = 99000000;
-        this.interval = 75000;
+        this.profit = 1250;
+        this.interval = 1250;
 
         super.constructor();
     }

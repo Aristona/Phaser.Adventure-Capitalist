@@ -1,4 +1,4 @@
-class App {
+class GameState extends State {
 
     constructor(game) {
         this.game = game;
@@ -31,19 +31,19 @@ class App {
     }
 
     create() {
-        let bg = this.game.add.image(0, 0, 'level1_bg');
+        let bg = this.game.add.image(0, 0, "level1_bg");
         bg.scale.setTo(1.5, 1.5);
         bg.fixedToCamera = true;
 
-        let leftInterface = this.game.add.image(0, 0, 'interface-bg-left');
-        let topInterface = this.game.add.image(0, 0, 'interface-bg-top');
-        let money        = this.game.add.image(165, 2, 'money');
+        let leftInterface = this.game.add.image(0, 0, "interface-bg-left");
+        let topInterface = this.game.add.image(0, 0, "interface-bg-top");
+        let money        = this.game.add.image(165, 2, "money");
         money.scale.setTo(.7, .7);
 
-        let logotop = this.game.add.image(4, 0, 'pizza');
+        let logotop = this.game.add.image(4, 0, "pizza");
         logotop.scale.setTo(.45, .45);
 
-        let logobelow = this.game.add.image(2, 48, 'clickers');
+        let logobelow = this.game.add.image(2, 48, "clickers");
         logobelow.scale.setTo(.3, .3);
 
         this.buttons.forEach((button, i) => {
@@ -52,14 +52,14 @@ class App {
                 y: 150 + (i * 75)
             };
 
-            this.game.add.image(position.x, position.y, 'interface-button');
+            this.game.add.image(position.x, position.y, "interface-button");
             this.game.add.text(position.x + 8, position.y + 10, button, {
                 font: "bold 22px Arial",
                 fill: "#000"
             });
         })
 
-        this.game.sound.play('bgm', 1, true);
+        this.game.sound.play("bgm", 1, true);
 
         this.game.money = this.config.startingMoney;
 

@@ -1,4 +1,4 @@
-class Menu {
+class MenuState extends State {
 
     constructor(game) {
         this.game = game;
@@ -11,13 +11,13 @@ class Menu {
 
     create() {
 
-        var bg    = this.game.add.tileSprite(0, 0, this.game.camera.width, this.game.camera.height, 'menu_bg');
-        var start = this.game.add.button(this.game.world.centerX, 200, 'start');
-        var help  = this.game.add.button(this.game.world.centerX, 300, 'help');
-        var logo  = this.game.add.button(75, 50, 'logo');
+        var bg    = this.game.add.tileSprite(0, 0, this.game.camera.width, this.game.camera.height, "menu_bg");
+        var start = this.game.add.button(this.game.world.centerX, 200, "start");
+        var help  = this.game.add.button(this.game.world.centerX, 300, "help");
+        var logo  = this.game.add.button(75, 50, "logo");
 
         if (this.music === null) {
-            this.music = this.game.add.audio('bgm', 1, true);
+            this.music = this.game.add.audio("bgm", 1, true);
             this.music.play();
         }
 
@@ -40,7 +40,7 @@ class Menu {
         });
         start.onInputDown.add(() => {
             this.music.stop();
-            this.game.state.start('Game');
+            this.game.state.start("GameState");
         });
 
         help.onInputOver.add((help) => {
@@ -52,7 +52,7 @@ class Menu {
             help.anchor.x = Math.round(help.width * 0.5) / help.width;
         });
         help.onInputDown.add(() => {
-            this.game.state.start('Help');
+            this.game.state.start("HelpState");
         });
     }
 

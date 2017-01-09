@@ -6,7 +6,9 @@
     "test": "mocha --reporter spec --timeout 5000"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "concurrently": "^3.1.0",
+    "eslint": "^3.13.0",
     "grunt": "^0.4.5",
     "grunt-babel": "^4.0.0",
     "grunt-contrib-concat": "^0.5.1",

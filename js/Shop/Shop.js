@@ -1,4 +1,4 @@
-class AbstractShop
+class Shop
 {
     constructor() {
 
@@ -70,7 +70,7 @@ class AbstractShop
             alertBg: this.game.add.image(
                 this.button.x,
                 this.button.y + 45,
-                'buy-bg'
+                "buy-bg"
             ),
             alert: this.game.add.text(
                 this.button.x + 5,
@@ -84,7 +84,7 @@ class AbstractShop
             progressBg: this.game.add.image(
                 this.button.x,
                 this.button.y + 69,
-                'progress-bg'
+                "progress-bg"
             ),
             progress: new Phaser.Line(0, 0, 0, 0)
         };
@@ -109,7 +109,7 @@ class AbstractShop
 
     upgrade() {
         if (this.buyable() === true) {
-            this.game.add.audio('buy', .6).play();
+            this.game.add.audio("buy", .6).play();
             this.game.money -= this.price;
             this.price = this.price * 2;
             this.profit = this.profit * 1.2;
@@ -120,7 +120,7 @@ class AbstractShop
 
     purchase() {
         if (this.buyable() === true) {
-            this.game.add.audio('buy', .6).play();
+            this.game.add.audio("buy", .6).play();
             this.game.money -= this.price;
             this.price = this.price * 2;
             this.purchased = true;
@@ -202,6 +202,6 @@ class AbstractShop
     }
 
     render() {
-        this.game.debug.geom(this.indicators.progress, '#0fffff');
+        this.game.debug.geom(this.indicators.progress, "#0fffff");
     }
 }

@@ -1,4 +1,4 @@
-class Booter {
+class BootState extends State {
 
     constructor(game) {
         this.game = game;
@@ -14,8 +14,8 @@ class Booter {
         this.game.scale.minWidth  = game.width;
         this.game.scale.minHeight = game.height;
 
-        this.game.stage.backgroundColor = '#313131';
-        this.game.state.start('Loader');
+        this.game.stage.backgroundColor = "#313131";
+        this.game.state.start("LoadState");
     }
 
 };
