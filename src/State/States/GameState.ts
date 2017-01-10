@@ -1,55 +1,64 @@
+import { Game } from "../../Game";
+
 import { State } from "../State";
 import { StateInterface } from "../StateInterface";
 
+import { Translator } from "../../Translator/Translator";
+
+import { ShopInterface } from "../../Shop/ShopInterface";
+
 export class GameState extends State implements StateInterface {
 
+    protected shops: ShopInterface[];
+    protected purchasables: string[] = [
+        "LemonadeShop",
+        "NewspaperShop",
+        "CarShop",
+        "PizzaShop",
+        "DonutShop",
+        "ShrimpShop",
+        "HockeyShop",
+        "MovieShop",
+        "BankShop",
+        "OilShop",
+    ];
+
+    protected buttons: string[] = [
+        "Managers",
+        "Upgrades",
+        "Investors",
+    ];
+
+    protected config: {
+        startingMoney: number
+    } = {
+        startingMoney: 5
+    };
+
+    protected translator: Translator = new Translator;
+
+    protected moneyBar: Phaser.Text;
+
     constructor(
-        public game: Phaser.Game
+        public game: Game
     ) {
         super();
-        this.game = game;
-
-        this.shops = [];
-
-        this.purchasables = [
-            "LemonadeShop",
-            "NewspaperShop",
-            "CarShop",
-            "PizzaShop",
-            "DonutShop",
-            "ShrimpShop",
-            "HockeyShop",
-            "MovieShop",
-            "BankShop",
-            "OilShop",
-        ];
-
-        this.buttons = [
-            "Managers",
-            "Upgrades",
-            "Investors",
-        ];
-
-        this.config = {
-            startingMoney: 5.00
-        };
-
     }
 
     create() {
-        let bg = this.game.add.image(0, 0, "level1_bg");
+        let bg = this.game.phaser.add.image(0, 0, "level1_bg");
         bg.scale.setTo(1.5, 1.5);
         bg.fixedToCamera = true;
 
-        let leftInterface = this.game.add.image(0, 0, "interface-bg-left");
-        let topInterface = this.game.add.image(0, 0, "interface-bg-top");
-        let money        = this.game.add.image(165, 2, "money");
+        let leftInterface = this.game.phaser.add.image(0, 0, "interface-bg-left");
+        let topInterface = this.game.phaser.add.image(0, 0, "interface-bg-top");
+        let money        = this.game.phaser.add.image(165, 2, "money");
         money.scale.setTo(.7, .7);
 
-        let logotop = this.game.add.image(4, 0, "pizza");
+        let logotop = this.game.phaser.add.image(4, 0, "pizza");
         logotop.scale.setTo(.45, .45);
 
-        let logobelow = this.game.add.image(2, 48, "clickers");
+        let logobelow = this.game.phaser.add.image(2, 48, "clickers");
         logobelow.scale.setTo(.3, .3);
 
         this.buttons.forEach((button, i) => {
@@ -58,20 +67,18 @@ export class GameState extends State implements StateInterface {
                 y: 150 + (i * 75)
             };
 
-            this.game.add.image(position.x, position.y, "interface-button");
-            this.game.add.text(position.x + 8, position.y + 10, button, {
+            this.game.phaser.add.image(position.x, position.y, "interface-button");
+            this.game.phaser.add.text(position.x + 8, position.y + 10, button, {
                 font: "bold 22px Arial",
                 fill: "#000"
             });
         })
 
-        this.game.sound.play("bgm", 1, true);
+        this.game.phaser.sound.play("bgm", 1, true);
 
         this.game.money = this.config.startingMoney;
 
-        this.game.translator = new Translator;
-
-        this.moneyBar = this.game.add.text(198, 6, null, {
+        this.moneyBar = this.game.phaser.add.text(198, 6, null, {
             font: "32px Tahoma",
             fill: "#000"
         });

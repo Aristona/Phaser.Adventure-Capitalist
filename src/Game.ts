@@ -12,25 +12,24 @@ import { GameState } from "./State/States/GameState";
 
 export class Game
 {
-    public game: Phaser.Game;
+    public phaser: Phaser.Game;
+    public money: number = 0;
+    public width: number = 800;
+    public height: number = 600;
 
     constructor() {
-        this.game = new Phaser.Game(800, 600, Phaser.AUTO, "");
+        this.phaser = new Phaser.Game(this.width, this.height, Phaser.AUTO, "");
     }
 
     preload() {
-        this.game.state.add("BootState", new BootState(this.game));
-        this.game.state.add("LoadState", new LoadState(this.game));
-        this.game.state.add("MenuState", new MenuState(this.game));
-        this.game.state.add("HelpState", new HelpState(this.game));
-        this.game.state.add("GameState", new GameState(this.game));
+        this.phaser.state.add("BootState", new BootState(this));
+        this.phaser.state.add("LoadState", new LoadState(this));
+        this.phaser.state.add("MenuState", new MenuState(this));
+        this.phaser.state.add("HelpState", new HelpState(this));
+        this.phaser.state.add("GameState", new GameState(this));
     }
 
     start() {
-        this.game.state.start("BootState");
+        this.phaser.state.start("BootState");
     }
 }
-
-const game = new Game;
-game.preload();
-game.start();

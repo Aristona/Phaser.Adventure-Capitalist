@@ -1,10 +1,12 @@
+import { Game } from "../../Game";
+
 import { State } from "../State";
 import { StateInterface } from "../StateInterface";
 
 export class BootState extends State implements StateInterface {
 
     constructor(
-        public game: Phaser.Game
+        public game: Game
     ) {
         super();
     }
@@ -14,13 +16,12 @@ export class BootState extends State implements StateInterface {
     }
 
     create() {
+        this.game.phaser.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.game.phaser.scale.minWidth  = this.game.width;
+        this.game.phaser.scale.minHeight = this.game.height;
 
-        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-        this.game.scale.minWidth  = game.width;
-        this.game.scale.minHeight = game.height;
-
-        this.game.stage.backgroundColor = "#313131";
-        this.game.state.start("LoadState");
+        this.game.phaser.stage.backgroundColor = "#313131";
+        this.game.phaser.state.start("LoadState");
     }
 
 }

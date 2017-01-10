@@ -1,3 +1,5 @@
+import { Game } from "../../Game";
+
 import { Shop } from "../Shop";
 import { ShopInterface } from "../ShopInterface";
 
@@ -14,7 +16,7 @@ export class CarShop extends Shop implements ShopInterface {
     protected interval: number = 12000;
 
     constructor(
-        public game: Phaser.Game,
+        public game: Game,
         public index: number
     ) {
         super();
@@ -22,5 +24,9 @@ export class CarShop extends Shop implements ShopInterface {
 
     update() {
         super.update();
+    }
+
+    render() {
+        super.render();
     }
 }

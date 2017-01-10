@@ -4,7 +4,33 @@
     <meta charset="UTF-8" />
     <title>Game</title>
 
-    <script src="bundle.js"></script>
+    <script type="text/javascript" src="//requirejs.org/docs/release/2.3.2/minified/require.js"></script>
+    <script type="text/javascript" src="./build/js/bundle.js"></script>
+    <script type="text/javascript">
+    (function () {
+        "use strict";
+
+        requirejs.config({
+            baseUrl: "build/js/",
+
+            paths: {
+                phaser: "../../node_modules/phaser/build/phaser.min"
+            },
+
+            shim: {
+                "phaser": {
+                    exports: "Phaser"
+                }
+            }
+        });
+
+        require(["phaser", "Game"], function (Phaser, Game) {
+            let game = new Game.Game;
+            game.preload();
+            game.start();
+        });
+    }());
+    </script>
 
     <style type="text/css">
         body {
