@@ -1,5 +1,3 @@
-import { Game } from "../Game";
-
 import { Translator } from "../Translator/Translator";
 
 export abstract class Shop
@@ -49,10 +47,14 @@ export abstract class Shop
     protected startedAt: number;
     protected endingAt: number;
 
-    constructor(
-        public game: Game,
-        public index: number
-    ) {
+    protected abstract asset: any;
+    protected abstract price: any;
+    protected abstract profit: any;
+    protected abstract interval: any;
+    protected abstract game: any;
+    protected abstract index: any;
+
+    constructor() {
         // We need 5 shops at left and 5 at right.
         if (this.index <= 4) {
             this.position = {

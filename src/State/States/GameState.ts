@@ -95,6 +95,7 @@ export class GameState extends State implements StateInterface {
 
         // Init all shops
         this.purchasables.forEach((purchasable, index) => {
+            // @todo find a way to do new window[purchasable] expression with Typescript.
             let instance = new LemonadeShop(this.game, index);
             this.shops.push(instance);
         });

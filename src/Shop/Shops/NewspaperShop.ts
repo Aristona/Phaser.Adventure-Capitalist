@@ -19,7 +19,7 @@ export class NewspaperShop extends Shop implements ShopInterface {
         public game: Game,
         public index: number
     ) {
-        super(game, index);
+        super();
     }
 
     update() {
