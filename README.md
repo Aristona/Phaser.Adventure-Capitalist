@@ -12,6 +12,8 @@ Install `NPM` and run the following commands.
 
     npm install
     npm install -g http-server
+    npm install -g typings
+    typings install
     npm start
 
 Browse `localhost:8080`.

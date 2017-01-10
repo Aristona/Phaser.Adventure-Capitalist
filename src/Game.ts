@@ -1,4 +1,4 @@
-/// <reference types="typescript" />
+/// <reference path="../node_modules/phaser/typescript/phaser.comments.d.ts" />
 /// <reference path="../typings/globals/socket.io-client/index.d.ts" />
 
 import * as Phaser from "phaser";

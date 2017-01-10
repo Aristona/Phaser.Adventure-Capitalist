@@ -6,7 +6,7 @@
     "test": "mocha --reporter spec --timeout 5000"
   },
   "dependencies": {
-    "phaser": "^2.5.0",
+    "phaser": "2.6.2",
     "socket.io-client": "^1.4.8"
   },
   "devDependencies": {
@@ -19,11 +19,10 @@
     "gulp-util": "^3.0.8",
     "merge2": "^1.0.3",
     "tsify": "^3.0.0",
-    "typescript": "2.0.3",
+    "typescript": "2.1.4",
     "typings": "^2.1.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.8.0"
   },
-  "typings": "./typescript/phaser.comments.d.ts",
   "license": "MIT"
 }

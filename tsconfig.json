@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "module": "amd",
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": false,
     "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["dom", "es2015"],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "target": "es5"
+    "preserveConstEnums": true
   },
   "exclude": [
     "node_modules"
