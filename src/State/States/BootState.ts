@@ -1,7 +1,12 @@
-class BootState extends State {
+import { State } from "../State";
+import { StateInterface } from "../StateInterface";
 
-    constructor(game) {
-        this.game = game;
+export class BootState extends State implements StateInterface {
+
+    constructor(
+        public game: Phaser.Game
+    ) {
+        super();
     }
 
     preload() {
@@ -18,4 +23,4 @@ class BootState extends State {
         this.game.state.start("LoadState");
     }
 
-};
+}

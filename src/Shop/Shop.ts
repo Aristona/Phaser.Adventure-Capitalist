@@ -1,22 +1,32 @@
-class Shop
+export abstract class Shop
 {
+    protected purchased: boolean = false;
+    protected level: number = 1;
+
+    protected readonly config: {
+        distanceBetweenShops: number,
+        leftSideX:  number,
+        rightSideX: number
+    } = {
+        distanceBetweenShops: 100,
+        leftSideX:  175,
+        rightSideX: 530
+    };
+
+    public readonly styles = {
+        font: {
+            font: "14px Arial",
+            fill: "#ccc"
+        }
+    };
+
+    protected index: number;
+    protected position: {
+        x: number,
+        y: number
+    };
+
     constructor() {
-
-        this.purchased = false;
-        this.level = 1;
-
-        this.config = {
-            distanceBetweenShops: 100,
-            leftSideX:  175,
-            rightSideX: 530
-        };
-
-        this.styles = {
-            font: {
-                font: "14px Arial",
-                fill: "#ccc"
-            }
-        };
 
         // We need 5 shops at left and 5 at right.
         if (this.index <= 4) {

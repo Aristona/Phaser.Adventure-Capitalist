@@ -1,6 +1,12 @@
-class GameState extends State {
+import { State } from "../State";
+import { StateInterface } from "../StateInterface";
 
-    constructor(game) {
+export class GameState extends State implements StateInterface {
+
+    constructor(
+        public game: Phaser.Game
+    ) {
+        super();
         this.game = game;
 
         this.shops = [];
@@ -86,4 +92,4 @@ class GameState extends State {
         this.shops.forEach((shop) => shop.render());
     }
 
-};
+}

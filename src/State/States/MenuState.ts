@@ -1,8 +1,14 @@
-class MenuState extends State {
+import { State } from "../State";
+import { StateInterface } from "../StateInterface";
 
-    constructor(game) {
-        this.game = game;
-        this.music = null;
+export class MenuState extends State implements StateInterface {
+
+    public music: any = null;
+
+    constructor(
+        public game: Phaser.Game
+    ) {
+        super();
     }
 
     preload() {
@@ -56,4 +62,4 @@ class MenuState extends State {
         });
     }
 
-};
+}

@@ -1,7 +1,12 @@
-class HelpState extends State {
+import { State } from "../State";
+import { StateInterface } from "../StateInterface";
 
-    constructor(game) {
-        this.game = game;
+export class HelpState extends State implements StateInterface {
+
+    constructor(
+        public game: Phaser.Game
+    ) {
+        super();
     }
 
     create() {
@@ -29,4 +34,4 @@ class HelpState extends State {
 
     }
 
-};
+}
