@@ -13,16 +13,16 @@ export class HelpState extends State implements StateInterface {
 
     create() {
 
-        let bg = this.game.phaser.add.tileSprite(
+        let bg = this.game.add.tileSprite(
             0,
             0,
-            this.game.phaser.camera.width,
-            this.game.phaser.camera.height,
+            this.game.camera.width,
+            this.game.camera.height,
             "menu_bg"
         );
 
-        let back = this.game.phaser.add.button(50, 50, "back");
-        let text = this.game.phaser.add.text(100, 150, "Woohooo!", {
+        let back = this.game.add.button(50, 50, "back");
+        let text = this.game.add.text(100, 150, "Woohooo!", {
             font: "24px Arial",
             fill: "#ccc"
         });
@@ -38,7 +38,7 @@ export class HelpState extends State implements StateInterface {
             back.scale.setTo(.5, .5);
         });
         back.onInputDown.add(() => {
-            this.game.phaser.state.start("MenuState");
+            this.game.state.start("MenuState");
         });
 
     }

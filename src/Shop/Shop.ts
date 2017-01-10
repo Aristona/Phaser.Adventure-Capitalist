@@ -24,24 +24,10 @@ export abstract class Shop
         }
     };
 
-    //--
-    protected index: number;
-    protected game: Game;
-    protected asset: {
-        readonly name: string
-    } = {
-        name: "bank-shop"
-    };
-
-    protected price: number = 10000000;
-    protected profit: number = 9900000;
-    protected interval: number = 1000;
-
     protected position: {
         x: number,
         y: number
     };
-    // --
 
     protected button: Phaser.Button;
 
@@ -63,8 +49,10 @@ export abstract class Shop
     protected startedAt: number;
     protected endingAt: number;
 
-    constructor() {
-
+    constructor(
+        public game: Game,
+        public index: number
+    ) {
         // We need 5 shops at left and 5 at right.
         if (this.index <= 4) {
             this.position = {
@@ -79,47 +67,47 @@ export abstract class Shop
         }
 
         // Add the shop button.
-        this.button = this.game.phaser.add.button(this.position.x, this.position.y, this.asset.name);
+        this.button = this.game.add.button(this.position.x, this.position.y, this.asset.name);
         this.button.alpha = .15;
         this.button.scale.setTo(1, 1);
 
         this.indicators = {
-            name: this.game.phaser.add.text(
+            name: this.game.add.text(
                 this.button.x,
                 this.button.y - 16,
                 this.translator.translate(this.asset.name),
                 this.styles.font
             ),
-            profit: this.game.phaser.add.text(
+            profit: this.game.add.text(
                 this.button.x + 75,
                 this.button.y,
                 null,
                 this.styles.font
             ),
-            interval: this.game.phaser.add.text(
+            interval: this.game.add.text(
                 this.button.x + 75,
                 this.button.y + 15,
                 null,
                 this.styles.font
             ),
-            level: this.game.phaser.add.text(
+            level: this.game.add.text(
                 this.button.x + 75,
                 this.button.y + 30,
                 null,
                 this.styles.font
             ),
-            price: this.game.phaser.add.text(
+            price: this.game.add.text(
                 this.button.x + 75,
                 this.button.y + 45,
                 null,
                 this.styles.font
             ),
-            alertBg: this.game.phaser.add.image(
+            alertBg: this.game.add.image(
                 this.button.x,
                 this.button.y + 45,
                 "buy-bg"
             ),
-            alert: this.game.phaser.add.text(
+            alert: this.game.add.text(
                 this.button.x + 5,
                 this.button.y + 45,
                 null,
@@ -128,7 +116,7 @@ export abstract class Shop
                     fill: "#000"
                 }
             ),
-            progressBg: this.game.phaser.add.image(
+            progressBg: this.game.add.image(
                 this.button.x,
                 this.button.y + 69,
                 "progress-bg"
@@ -156,7 +144,7 @@ export abstract class Shop
 
     upgrade() {
         if (this.buyable() === true) {
-            this.game.phaser.add.audio("buy", .6).play();
+            this.game.add.audio("buy", .6).play();
             this.game.money -= this.price;
             this.price = this.price * 2;
             this.profit = this.profit * 1.2;
@@ -167,7 +155,7 @@ export abstract class Shop
 
     purchase() {
         if (this.buyable() === true) {
-            this.game.phaser.add.audio("buy", .6).play();
+            this.game.add.audio("buy", .6).play();
             this.game.money -= this.price;
             this.price = this.price * 2;
             this.purchased = true;
@@ -249,6 +237,7 @@ export abstract class Shop
     }
 
     render() {
-        this.game.phaser.debug.geom(this.indicators.progress, "#0fffff");
+        // @todo fix
+        // this.game.debug.geom(this.indicators.progress, "#0fffff");
     }
 }

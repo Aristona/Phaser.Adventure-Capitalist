@@ -19,8 +19,9 @@ export class PizzaShop extends Shop implements ShopInterface {
         public game: Game,
         public index: number
     ) {
-        super();
+        super(game, index);
     }
+
     update() {
         super.update();
     }

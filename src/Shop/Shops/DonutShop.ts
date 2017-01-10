@@ -19,7 +19,7 @@ export class DonutShop extends Shop implements ShopInterface {
         public game: Game,
         public index: number
     ) {
-        super();
+        super(game, index);
     }
 
     update() {

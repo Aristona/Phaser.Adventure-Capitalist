@@ -19,20 +19,20 @@ export class MenuState extends State implements StateInterface {
 
     create() {
 
-        var bg = this.game.phaser.add.tileSprite(
+        var bg = this.game.add.tileSprite(
             0,
             0,
-            this.game.phaser.camera.width,
-            this.game.phaser.camera.height,
+            this.game.camera.width,
+            this.game.camera.height,
             "menu_bg"
         );
 
-        var start = this.game.phaser.add.button(this.game.phaser.world.centerX, 200, "start");
-        var help  = this.game.phaser.add.button(this.game.phaser.world.centerX, 300, "help");
-        var logo  = this.game.phaser.add.button(75, 50, "logo");
+        var start = this.game.add.button(this.game.world.centerX, 200, "start");
+        var help  = this.game.add.button(this.game.world.centerX, 300, "help");
+        var logo  = this.game.add.button(75, 50, "logo");
 
         if (this.music === null) {
-            this.music = this.game.phaser.add.audio("bgm", 1, true);
+            this.music = this.game.add.audio("bgm", 1, true);
             this.music.play();
         }
 
@@ -55,7 +55,7 @@ export class MenuState extends State implements StateInterface {
         });
         start.onInputDown.add(() => {
             this.music.stop();
-            this.game.phaser.state.start("GameState");
+            this.game.state.start("GameState");
         });
 
         help.onInputOver.add((help: any) => {
@@ -67,7 +67,7 @@ export class MenuState extends State implements StateInterface {
             help.anchor.x = Math.round(help.width * 0.5) / help.width;
         });
         help.onInputDown.add(() => {
-            this.game.phaser.state.start("HelpState");
+            this.game.state.start("HelpState");
         });
     }
 
