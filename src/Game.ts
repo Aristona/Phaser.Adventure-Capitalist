@@ -16,7 +16,7 @@ export class Game extends Phaser.Game
 
     constructor() {
         super({
-            enableDebug: false,
+            enableDebug: true,
             width: 800,
             height: 600,
             renderer: Phaser.AUTO,

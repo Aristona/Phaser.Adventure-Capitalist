@@ -4,8 +4,7 @@ var merge = require("merge2");
 
 var tsProject = ts.createProject({
     declaration: true,
-    module: "amd",
-    out: "bundle.js"
+    module: "amd"
 });
 
 gulp.task("typescript", function() {

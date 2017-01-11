@@ -55,6 +55,10 @@ export abstract class Shop
     protected abstract index: any;
 
     constructor() {
+    }
+
+    init() {
+        // @todo figure out how to do it magically since constructor cannot access this scope
         // We need 5 shops at left and 5 at right.
         if (this.index <= 4) {
             this.position = {
@@ -239,7 +243,6 @@ export abstract class Shop
     }
 
     render() {
-        // @todo fix
-        // this.game.debug.geom(this.indicators.progress, "#0fffff");
+        this.game.debug.geom(this.indicators.progress, "#0fffff");
     }
 }

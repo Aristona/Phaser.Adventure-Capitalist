@@ -13,6 +13,7 @@ import { DonutShop } from "../../Shop/Shops/DonutShop";
 import { ShrimpShop } from "../../Shop/Shops/ShrimpShop";
 import { HockeyShop } from "../../Shop/Shops/HockeyShop";
 import { MovieShop } from "../../Shop/Shops/MovieShop";
+import { BankShop } from "../../Shop/Shops/BankShop";
 import { OilShop } from "../../Shop/Shops/OilShop";
 
 import { ShopInterface } from "../../Shop/ShopInterface";
@@ -95,9 +96,39 @@ export class GameState extends State implements StateInterface {
 
         // Init all shops
         this.purchasables.forEach((purchasable, index) => {
-            // @todo find a way to do new window[purchasable] expression with Typescript.
-            let instance = new LemonadeShop(this.game, index);
-            this.shops.push(instance);
+            // @todo find a way to do `new window[purchasable](this.game, index);` trick with Typescript.
+            switch (purchasable) {
+                case "LemonadeShop":
+                    this.shops.push(new LemonadeShop(this.game, index));
+                    break;
+                case "NewspaperShop":
+                    this.shops.push(new NewspaperShop(this.game, index));
+                    break;
+                case "CarShop":
+                    this.shops.push(new CarShop(this.game, index));
+                    break;
+                case "PizzaShop":
+                    this.shops.push(new PizzaShop(this.game, index));
+                    break;
+                case "DonutShop":
+                    this.shops.push(new DonutShop(this.game, index));
+                    break;
+                case "ShrimpShop":
+                    this.shops.push(new ShrimpShop(this.game, index));
+                    break;
+                case "HockeyShop":
+                    this.shops.push(new HockeyShop(this.game, index));
+                    break;
+                case "MovieShop":
+                    this.shops.push(new MovieShop(this.game, index));
+                    break;
+                case "BankShop":
+                    this.shops.push(new BankShop(this.game, index));
+                    break;
+                case "OilShop":
+                    this.shops.push(new OilShop(this.game, index));
+                    break;
+            }
         });
     }
 
