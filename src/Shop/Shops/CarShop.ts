@@ -20,8 +20,6 @@ export class CarShop extends Shop implements ShopInterface {
         public index: number
     ) {
         super();
-        // @todo fix
-        this.init();
     }
 
     update() {

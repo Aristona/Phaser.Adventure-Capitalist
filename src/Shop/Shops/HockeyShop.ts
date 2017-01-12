@@ -20,8 +20,6 @@ export class HockeyShop extends Shop implements ShopInterface {
         public index: number
     ) {
         super();
-        // @todo fix
-        this.init();
     }
 
     update() {

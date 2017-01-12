@@ -20,18 +20,18 @@ import { ShopInterface } from "../../Shop/ShopInterface";
 
 export class GameState extends State implements StateInterface {
 
-    protected shops: ShopInterface[] = [];
-    protected purchasables: string[] = [
-        "LemonadeShop",
-        "NewspaperShop",
-        "CarShop",
-        "PizzaShop",
-        "DonutShop",
-        "ShrimpShop",
-        "HockeyShop",
-        "MovieShop",
-        "BankShop",
-        "OilShop",
+    protected instances: ShopInterface[] = [];
+    protected shops = [
+        LemonadeShop,
+        NewspaperShop,
+        CarShop,
+        PizzaShop,
+        DonutShop,
+        ShrimpShop,
+        HockeyShop,
+        MovieShop,
+        BankShop,
+        OilShop
     ];
 
     protected buttons: string[] = [
@@ -95,50 +95,23 @@ export class GameState extends State implements StateInterface {
         });
 
         // Init all shops
-        this.purchasables.forEach((purchasable, index) => {
-            // @todo find a way to do `new window[purchasable](this.game, index);` trick with Typescript.
-            switch (purchasable) {
-                case "LemonadeShop":
-                    this.shops.push(new LemonadeShop(this.game, index));
-                    break;
-                case "NewspaperShop":
-                    this.shops.push(new NewspaperShop(this.game, index));
-                    break;
-                case "CarShop":
-                    this.shops.push(new CarShop(this.game, index));
-                    break;
-                case "PizzaShop":
-                    this.shops.push(new PizzaShop(this.game, index));
-                    break;
-                case "DonutShop":
-                    this.shops.push(new DonutShop(this.game, index));
-                    break;
-                case "ShrimpShop":
-                    this.shops.push(new ShrimpShop(this.game, index));
-                    break;
-                case "HockeyShop":
-                    this.shops.push(new HockeyShop(this.game, index));
-                    break;
-                case "MovieShop":
-                    this.shops.push(new MovieShop(this.game, index));
-                    break;
-                case "BankShop":
-                    this.shops.push(new BankShop(this.game, index));
-                    break;
-                case "OilShop":
-                    this.shops.push(new OilShop(this.game, index));
-                    break;
-            }
+        this.shops.forEach((shop, index) => {
+            let instance = Object.create(shop.prototype);
+            instance.constructor(this.game, index);
+            // since Typescript doesn't support this to be used in abstract constructor
+            // we need to rely on a secondary (fake) constructor. ¯\_(ツ)_/¯
+            instance.init();
+            this.instances.push(instance);
         });
     }
 
     update() {
-        this.shops.forEach(shop => shop.update());
+        this.instances.forEach(instance => instance.update());
     }
 
     render() {
         this.moneyBar.text = this.game.money.toFixed(2);
-        this.shops.forEach(shop => shop.render());
+        this.instances.forEach(instance => instance.render());
     }
 
 }
