@@ -20,12 +20,12 @@ export class Game extends Phaser.Game
             width: 800,
             height: 600,
             renderer: Phaser.AUTO,
-            parent: 'content',
+            parent: "content",
             transparent: false,
             antialias: true,
             preserveDrawingBuffer: false,
             physicsConfig: null,
-            seed: '',
+            seed: "",
             state: null,
             forceSetTimeOut: false
         });
